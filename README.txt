@@ -1,54 +1,73 @@
+*This project has been created as part of the 42 curriculum by clferrei.*
+
 # Libft
 
-Custom C library developed as part of the 42 curriculum.
+## Description
 
-## Overview
+Libft is a custom C library developed as part of the 42 curriculum.  
+The goal of this project is to recreate standard C library functions and implement additional utility functions from scratch.
 
-Libft is a foundational project focused on recreating standard C library functions and implementing additional utility functions.
+This project aims to deepen understanding of low-level C programming concepts, including:
+- memory management
+- pointer manipulation
+- string handling
+- algorithmic thinking
 
-The goal is to deepen understanding of low-level programming concepts such as memory management, string manipulation, and pointer operations.
+The library serves as a foundation for future projects in the 42 curriculum.
 
-## Features
+---
 
-The library includes functions related to:
+## Library Description
 
-- Character checks and classification
-- String manipulation
-- Memory management
-- Conversion functions (e.g. atoi)
-- Additional utility functions
+Libft is structured as a collection of independent functions grouped by functionality.  
+Each function is implemented from scratch following strict coding standards.
 
-## Structure
+The library includes:
 
-Each function is implemented in its own source file following the 42 coding standards.
+- Character classification functions (e.g. ft_isalpha, ft_isdigit)
+- String manipulation functions (e.g. ft_strlen, ft_strdup, ft_split)
+- Memory functions (e.g. ft_memset, ft_memcpy, ft_calloc)
+- Conversion functions (e.g. ft_atoi, ft_itoa)
+- Additional utility functions (including linked list handling if implemented)
 
-The project is built using a Makefile that compiles all functions into a static library.
+Each function is designed to behave similarly to its standard C library counterpart while reinforcing understanding of memory and pointer operations.
 
-## Usage
+---
 
-To compile the library:
+## Instructions
 
-    make
+To compile the library: make
 
-To clean object files:
+To remove object files: make clean
 
-    make clean
+To remove object files and the library: make fclean
 
-To remove all generated files:
+To recompile everything: make re
 
-    make fclean
+To use the library in a program: gcc main.c -L. -lft
 
-To recompile:
+--- 
 
-    make re
+## Resources
 
-## Goals
+### References
 
-- Understand how standard C library functions work internally
-- Improve memory and pointer handling
-- Write clean, modular, and reusable code
-- Follow strict coding standards (Norminette)
+- man7.org Linux manual pages
+- GNU C Library documentation
+- "The C Programming Language" by Kernighan & Ritchie
+- 42 Intra documentation and project subject PDF
 
-## Notes
+---
 
-This project is part of the 42 Common Core and reflects a learning process rather than production-ready code.
+### AI Usage
+
+AI was used as a learning support tool during the development of this project.
+
+It was used for:
+- understanding edge cases in string manipulation functions (e.g. ft_split)
+- debugging pointer and memory allocation issues
+- clarifying integer conversion logic in ft_itoa (including INT_MIN handling)
+- reviewing algorithm structure and identifying logical mistakes
+
+All code was implemented, tested, and validated manually by the author.
+
