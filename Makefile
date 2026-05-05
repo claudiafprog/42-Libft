@@ -6,7 +6,7 @@
 #    By: clferrei <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/14 12:04:25 by clferrei          #+#    #+#              #
-#    Updated: 2026/04/23 09:22:39 by clferrei         ###   ########.fr        #
+#    Updated: 2026/04/24 16:55:25 by clferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,10 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 	  ft_strrchr.c ft_tolower.c ft_toupper.c ft_putchar_fd.c ft_putendl_fd.c \
 	  ft_putnbr_fd.c ft_putstr_fd.c ft_substr.c ft_strjoin.c ft_strtrim.c \
 	  ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-
-BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
-			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lstlast.c \
+	  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
+	  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lstlast.c \
 
 OBJ = $(SRC:.c=.o)
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
@@ -35,15 +33,11 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@echo "$(NAME) created"
 
-bonus: $(OBJ) $(BONUS_OBJ)
-	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
-	@echo "Bonus added to $(NAME)"
-
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ)
 	@echo "Removed"
 
 fclean: clean
@@ -52,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: claudiaferreira <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:39:02 by claudiaferrei     #+#    #+#             */
-/*   Updated: 2026/04/22 17:44:51 by claudiaferrei    ###   ########.fr       */
+/*   Updated: 2026/05/05 14:52:42 by clferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new_node)
 		{
 			ft_lstclear(&new_list, del);
+			del(new_content);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new_node);

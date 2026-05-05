@@ -3,34 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudiaferreira <marvin@42.fr>             +#+  +:+       +#+        */
+/*   By: clferrei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 11:28:19 by claudiaferrei     #+#    #+#             */
-/*   Updated: 2026/04/21 16:07:05 by clferrei         ###   ########.fr       */
+/*   Created: 2026/04/24 11:14:13 by clferrei          #+#    #+#             */
+/*   Updated: 2026/04/24 11:46:49 by clferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-
-static int	ispositive(const char *str)
-{
-	int	i;
-	int	sign;
-
-	i = 0;
-	sign = 1;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '-')
-		{
-			if (str[i + 1] == '-')
-				break ;
-			sign = -1;
-		}
-		i++;
-	}
-	return (sign);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -39,23 +17,21 @@ int	ft_atoi(const char *str)
 	int	sign;
 
 	i = 0;
-	result = 0;
-	if (!str || str[0] == '\0')
-		return (0);
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i + 1] == '+' || str[i + 1] == '-')
-			return (0);
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
+	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	sign = ispositive(str);
 	return (result * sign);
 }
 /*
@@ -64,44 +40,21 @@ int	ft_atoi(const char *str)
 
 int main(void)
 {
-    char *tests[] = {
-        "42",
-        "    -42",
-        "   +42",
-        "4193 with words",
-        "words 123",
-        "--42",
-        "++42",
-        "-+42",
-        "+-42",
-        "00042",
-        "   0000042",
-        "2147483647",
-        "2147483648",
-        "-2147483648",
-        "-2147483649",
-        "   -00000123abc",
-        "",
-        "   ",
-        "+",
-        "-",
-        "  +0",
-        "  -0",
-        "42+42",
-        "   +42  ",
-        "\t\n\r\v\f42",
-        NULL
-    };
+    char a[] = "    ++42";
+    char b[] = "   -+42";
+    char c[] = "00";
+    char d[] = "   -42";
+    char e[] = " +0";
 
-    int i = 0;
-
-    while (tests[i])
-    {
-        printf("INPUT: \"%s\"\n", tests[i]);
-        printf("ft_atoi: %d\n", ft_atoi(tests[i]));
-        printf("atoi   : %d\n", atoi(tests[i]));
-        printf("-------------------------\n");
-        i++;
-    }
-    return 0;
+    printf("%d\n", ft_atoi(a));
+    printf("%d\n", atoi(a));
+    printf("%d\n", ft_atoi(b));
+    printf("%d\n", atoi(b));
+    printf("%d\n", ft_atoi(c));
+    printf("%d\n", atoi(c));
+    printf("%d\n", ft_atoi(d));
+    printf("%d\n", atoi(d));
+    printf("%d\n", ft_atoi(e));
+    printf("%d\n", atoi(e));
+    return (0);
 }*/

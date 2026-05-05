@@ -6,7 +6,7 @@
 /*   By: clferrei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 08:59:32 by clferrei          #+#    #+#             */
-/*   Updated: 2026/04/17 10:44:57 by clferrei         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:49:40 by clferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static char	**populate_arrays(char **split, char const *s, char c)
 			i++;
 		len = i - start;
 		split[x] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!split[x])
+			return (NULL);
 		ft_strlcpy(split[x], &s[start], len + 1);
 		x++;
 	}
